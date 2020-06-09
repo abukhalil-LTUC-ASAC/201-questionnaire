@@ -1,61 +1,75 @@
 'use strict'
 
-var coffee = prompt('Do I drink coffee?', 'y/n').toLowerCase();
 var score =0;
-while (coffee !== "y" && coffee !== 'n'){
-    coffee = prompt('Do I drink coffee?', 'y/n').toLowerCase();
-}
-if (coffee == "y"){
-        alert(`Nope`)
-}   else {
-        alert(`Correct! I hate coffee, unless I'm tired.`);
-        score++;
-}
-
-var mansaf = prompt('What about eating Mansaf?', 'y/n').toLowerCase();
-while (mansaf !== "y" && mansaf !== "n"){
-    mansaf = prompt('What about eating Mansaf?', 'y/n').toLowerCase();
-}
-if (mansaf.toLowerCase() === "y"){
-        alert(`Correct! I love mansaf, even if it makes me tired.`)
-        score++;
-}   else {
-        alert(`Nope`)
-}
-
-var books = prompt('Reading books?', 'y/n').toLowerCase();
-while (books !== "y" && books !== "n"){
-    books = prompt('Reading books?', 'y/n').toLowerCase();
-}
-if (books.toLowerCase() === "y"){
-        alert(`Correct! I like reading technical books, only when I am not tired.`)
-        score++;
-}   else {
-        alert(`Nope`)
+var resubmit = 'Answer only with y/n!';
+var answer;
+var questions = [
+        ['Do I drink coffee', 'Nope.', 'Correct! I hate coffee, unless I\'m tired.'],
+        ['What about eating Mansaf?', 'Correct! I love mansaf, even if it makes me tired.', 'Nope.'],
+        ['Reading books?', 'Correct! I like reading technical books, only when I am not tired.','Nope.'],
+        ['Hiking perhaps?', 'Correct! I love hiking, and having different perspectives of a view.', 'Nope.'],
+        ['Do I like coding', 'Nope.', 'Correct! I don\'t \"like\" coding, but I love building stuff!.']
+    ];
+for (var i=0; i<5; i++) {
+        answer = prompt(questions[i][0], "y/n").toLowerCase();
+        while (answer !== "y" && answer !== "n"){
+                answer = prompt(resubmit).toLowerCase();
+                }
+                if (answer == "y"){
+                        alert(questions[i][1]);
+                        if(!(questions[i][1]=="Nope.")){
+                                score++;
+                        }
+                }   else {
+                        alert(questions[i][2]);
+                        if(!(questions[i][2]=="Nope.")){
+                                score++;
+                        }
+                }
 }
 
-var hiking = prompt('Hiking perhaps?', 'y/n').toLowerCase();
-while (hiking !== "y" && hiking !== "n"){
-    hiking = prompt('Hiking perhaps?', 'y/n').toLowerCase();
-}
-if (hiking.toLowerCase() === "y"){
-        alert(`Correct! I love hiking, and having different perspectives of a view.`)
-        score++;
-}   else {
-        alert(`Nope`)
+var numGuess = prompt('Guess a number between 1-100.');
+var myNum = Math.floor(Math.random() * 100) + 1;
+
+for (var i=0; i<=3; i++){
+        if (i<3){
+                if (numGuess==myNum){
+                        alert(`Correct`);
+                        score++;
+                        break;
+                }
+                if (numGuess>myNum){
+                        numGuess = prompt('Too large, guess again between 1-100.');
+                }
+                if (numGuess<myNum){
+                        numGuess = prompt('Too small, guess again between 1-100.');
+                }
+        } else {
+                alert(`Too late, the answer is: ` + myNum)
+        }
 }
 
-var coding = prompt('Do I like coding', 'y/n').toLowerCase();
-while (coding !== "y" && coding !== "n"){
-    coding = prompt('Do I like coding', 'y/n').toLowerCase();
-}
-if (coding.toLowerCase() === "y"){
-        alert(`Nope`)
-}   else {
-        alert(`Correct! I don't \"like\" coding, but I love building stuff!`)
-        score++;
+var movieList = 'Copy my favorite movie into the answer box: \
+A.I. Artificial Intelligence, Contact, \
+Grave of the fireflies, The Shawshank Redemption, Kingdom of Heaven: Director\'s Cut, Whiplash, \
+The Grand Budapest Hotel, Spirited Away, Man on Wire, Inception';
+var ansGuess = prompt(movieList);
+
+for (var i=0; i<=6; i++){
+        if (i<6){
+                if (ansGuess == 'Grave of the fireflies'){
+                        alert(`Correct`)
+                        score++;
+                        break;
+                }   else {
+                        alert(`Nope`);
+                        ansGuess = prompt(movieList);
+        
+                }
+        } else {
+                alert(`Too late, the answer is: Grave of the fireflies`);
+        }
 }
 
-var endscore = "You, " + name + " scored " + score + "/5 in this pop quiz.";
+var endscore = "You, " + name + " scored " + score + "/7 in this pop quiz.";
 document.getElementById("endscore").innerHTML = endscore;
-
