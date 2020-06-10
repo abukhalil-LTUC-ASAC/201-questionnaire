@@ -17,6 +17,9 @@ header {
     padding-right: 10px;
     border-radius: 50%;
 }
+#logo {
+    float: left;
+}
 
 #name {
     padding: 40px;
@@ -26,22 +29,48 @@ header {
 }
 
 main {
-    margin-left: 10px;
-    padding-left: 15px;
-    width: 75%;
-    float: left;
+    display: flex;
 }
+.main {
 
+    width: 75%;
+}
 section {
     padding: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 aside {
-    width: 20%;
-    float: left;
+    width: 25%;
 }
 
-li {
+ul.social {
+	list-style: none;
+}
+
+#social {
+    text-align: center;
+}
+
+i {
+    font-size: 3rem;
+    margin-top: 7px;
+    color: #ccc;
+    cursor: pointer;
+}
+.facebook:hover {
+    color: #4267b2;
+  }
+.github:hover {
+    color: #24292e;
+  }
+.linkedin:hover {
+    color: #0077b5;
+  }
+
+ol li {
     padding: 10px;
 }
+
+.clearfix {
+    clear: both; 
+  }

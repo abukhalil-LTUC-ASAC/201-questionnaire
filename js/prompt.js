@@ -18,7 +18,7 @@ Grave of the fireflies, The Shawshank Redemption, Kingdom of Heaven: Director\'s
 The Grand Budapest Hotel, Spirited Away, Man on Wire, Inception';
 
 
- function myname(){
+ function myName(){
         var name = prompt('So, what should I call you', 'Harry Potter');
         var txt = "Hello! " + name + ". How much do you know about me?";
         document.getElementById("name").innerHTML = txt;
@@ -88,14 +88,14 @@ function guessMovie(){
 
 }
 
-function myscore(){
+function myScore(){
         var endscore = "You, " + name + " scored " + score + "/7 in this pop quiz.";
         document.getElementById("endscore").innerHTML = endscore;
 }
 
 
-myname();
+myName();
 askMe();
 guessNum();
 guessMovie();
-myscore();
+myScore();
