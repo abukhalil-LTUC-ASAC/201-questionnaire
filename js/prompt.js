@@ -1,5 +1,7 @@
 
 'use strict'
+//event listeners
+document.querySelector("#quizbtn").addEventListener("click", startQuiz);
 
 
 var score =0;
@@ -20,7 +22,7 @@ var movieList = 'Guess my favorite movie name or number into the answer:\n1. A.I
 function myName() {
         var name = prompt('So, what should I call you', 'Harry Potter');
         var txt = "Hello! " + name + ". How much do you know about me?";
-        document.getElementById("name").innerHTML = txt;
+        document.getElementById("1").innerHTML = txt;
 }
 
 function askMe() {
@@ -54,52 +56,59 @@ function guessNum() {
                                 score++;
                                 break;
                         }
-                        if (numGuess>myNum){
+                        else if (numGuess>myNum){
                                 numGuessString += numGuess + '  '
                                 numGuess = prompt('Too large, guess again between 1-100. Last answers: ' + numGuessString);
                         }
-                        if (numGuess<myNum){
+                        else if (numGuess<myNum){
                                 numGuessString += numGuess + '  '
                                 numGuess = prompt('Too small, guess again between 1-100. Last answers: ' + numGuessString);
                         }
-                } else {
+                } else if (i>7) {
                         alert(`Too late, the answer is: ` + myNum)
                 }
+        }
 }
 
-}
 function guessMovie() {
         var ansGuess = prompt(movieList).toLowerCase();
-        var ansValue = 'shawshank redemption';
+        var ansValue = 'shawshankredemption';
+        console.log(ansValue.includes(ansGuess))
+        console.log((ansGuess != ""))
         for (var i=0; i<=6; i++){
                 if (i<6){
-                        if (ansValue.includes(ansGuess)|| ansGuess == 4 ){
+                        if ((ansValue.includes(ansGuess) || ansGuess == 4) && ansGuess != ""){
                                 alert(`Correct`)
                                 score++;
                                 break;
-                        }   else {
+                        }   else if (!((ansValue.includes(ansGuess) || ansGuess == 4) && ansGuess != "")){
                                 alert(`Nope`);
                                 ansGuess = prompt(movieList);
                         }
-                } else {
+                } else if (i >= 6) {
                         alert(`Too late, the answer is: The Shawshank Redemption`);
                 }
         }
 }
 
 function myScore() {
-        var btn = document.createElement("BUTTON");
-        btn.innerHTML = "Click to restart!";
         var endscore = "You, " + name + " scored " + score + "/7 in this pop quiz.<br><br>";
         document.getElementById('endscore').innerHTML = '';
         document.getElementById("endscore").innerHTML = endscore;
+
+        var btn = document.createElement("BUTTON");
+        btn.innerHTML = "Click to restart!";
+        btn.id ='quizbtn';
+        btn.addEventListener("click", startQuiz);    
         document.getElementById('endscore').appendChild(btn);
 }
 
-function startQuiz() {
-        myName();
-        askMe();
-        guessNum();
+function startQuiz(event) {
+        event.stopPropagation(event);
+        // myName();
+        // askMe();
+        // guessNum();
         guessMovie();
         myScore();
+        
 }
