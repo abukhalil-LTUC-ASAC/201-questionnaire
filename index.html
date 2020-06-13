@@ -7,15 +7,15 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">    </head>
     <body>
         <header>
-            <h1 id="name">Hi! This ia an about me page</h1>
+            <h1 id="1" class="name" onclick="setRandomColor(this.id)">Hi! This ia an about me page</h1>
         </header>
         <main>
             <aside>
-                <section>
+                <section id="2" onclick="setRandomColor(this.id)">
                 <p id="endscore"><button onclick="startQuiz();" id="quizbtn">Click here to start the quiz</button></p><hr>
                 <a href="https://www.khanacademy.org/computing/computer-science/algorithms/intro-to-algorithms/a/a-guessing-game" target="_blank">Why 7 guesses is enough to be correct</a>
                 </section>
-                <section id="social">
+                <section id="social" onclick="setRandomColor(this.id)">
                     <div id="logo">
                         <a href="#"><img class="logo" src='https://scontent.famm3-2.fna.fbcdn.net/v/t1.0-9/26239768_1801726399901978_1840781309444319721_n.jpg?_nc_cat=102&_nc_sid=85a577&_nc_eui2=AeHslESu4_iRztIZpcB-NlZYRaQHkbPWZTdFpAeRs9ZlN-QW5Z7XC8IWNMlL3Y6UvZ5g7e4yVwGmPsdZTK6j9OGk&_nc_ohc=sWMt5AbHFBoAX_lA4ad&_nc_ht=scontent.famm3-2.fna&oh=fc63ec64a5b5a37b4addb969ebf232e8&oe=5F046994';alt="ProfilePic"/></a>
                     </div>
@@ -25,12 +25,12 @@
                         <li><a href="https://www.linkedin.com/in/yahya-abukhalil/" target="_blank"><i class="fab fa-linkedin linkedin" aria-hidden="true"></i></a></li>
                     </ul>
                 </section>
-                <section>
+                <section id="3" onclick="setRandomColor(this.id)">
                     <a class="twitter-timeline" href="https://twitter.com/abukhaleelyahya/likes" data-height="550">Tweets Liked by @TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </section>
             </aside>
             <article>
-                <section class="summary">
+                <section class="summary" id="4" onclick="setRandomColor(this.id)">
                     <p id="intro">I am Yahya, I am an engineering graduate, 
                         with renewable energy focus. The year after graduation 
                         has been hectic with even bigger and steeper learning curves
@@ -63,7 +63,7 @@
                         </li>
                     </ul>
                 </section>
-                <section class="topMovies">
+                <section class="topMovies" id="5" onclick="setRandomColor(this.id)">
                     <p>These are my top 10 movies.</p><br>
                     <ol>
                         <li>
@@ -109,6 +109,7 @@
             </section>
         </footer>
         <script src="js/prompt.js"></script>
+        <script src="js/rcolors.js"></script>
 </body>
 </html>
 
