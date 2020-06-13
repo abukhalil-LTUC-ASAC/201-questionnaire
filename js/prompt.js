@@ -105,9 +105,9 @@ function myScore() {
 
 function startQuiz(event) {
         event.stopPropagation(event);
-        // myName();
-        // askMe();
-        // guessNum();
+        myName();
+        askMe();
+        guessNum();
         guessMovie();
         myScore();
         
